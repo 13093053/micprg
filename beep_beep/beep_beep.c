@@ -65,6 +65,7 @@ void main( void ){
 					}
 					buzzer_off();		// Disable buzzer
 					tick(1);
+					b = b << 1;			// Advance to next dot or dash
 				}
 				tick(2);				// Delay in between characters (2+1).
 			}
