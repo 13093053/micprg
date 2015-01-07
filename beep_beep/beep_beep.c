@@ -32,8 +32,7 @@ void main( void ){
 	
 	DDRD |= (1 << 5); 					// Set speaker as output
 
-	TCCR1B |= 1 << WGM12;				// Timer mode CTC
-	TCCR1A |= 1 << COM1A0;				// Output compare match toggle mode.	
+	TCCR1B |= 1 << WGM12;				// Timer mode CTC	
 	OCR1A = 1842;
 	TCCR1B |= (1 << CS12)| (1 << CS10); // Start timer at 2000Hz with f/1024 prescaler
 
