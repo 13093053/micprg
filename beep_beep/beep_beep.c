@@ -86,7 +86,7 @@ void buzzer_on()
 
 void buzzer_off()
 {
-	TCCR1A |= 1 << COM1A0;				// Disable timer1 output
+	TCCR1A &= ~(1 << COM1A0);				// Disable timer1 output
 	PORTB |= 1 << 5; 					// Set pin high to prevent clicking sound
 }
 
