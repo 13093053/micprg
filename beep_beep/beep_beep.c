@@ -24,17 +24,17 @@ uint8_t get_morse_letter( char c );
 
 void main( void ){
 	volatile char c;					// Character
-	volatile uint8_t cc = 0;				// Character count
+	volatile uint8_t cc = 0;			// Character count
 	volatile uint8_t mc, ml;			// Morse count & morse length
 	volatile uint8_t b;					// Buffer for morse letter
 
-	const char ascii_string[] = "Hello World";
+	volatile char ascii_string[] = "Dot dash dot dot dash dash dot 0123 taste taste. STOP";
 	
 	DDRD |= (1 << 5); 					// Set speaker as output
 
 	TCCR1B |= 1 << WGM12;				// Timer mode CTC	
 	OCR1A = 1842;
-	TCCR1B |= (1 << CS12)| (1 << CS10); // Start timer at 2000Hz with f/1024 prescaler
+	TCCR1B |= (0 << CS12)| (1 << CS10); // Start timer at 2000Hz with f/1024 prescaler
 
 
 	while(1)
@@ -80,6 +80,7 @@ void main( void ){
 
 void buzzer_on()
 {
+	PORTB &= ~( 1<<5 );
 	TCCR1A |= 1 << COM1A0;				// Enable timer1 output
 }
 
