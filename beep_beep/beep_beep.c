@@ -24,7 +24,7 @@ uint8_t get_morse_letter( char c );
 
 void main( void ){
 	volatile char c;					// Character
-	volatile uint8_t cc;				// Character count
+	volatile uint8_t cc = 0;				// Character count
 	volatile uint8_t mc, ml;			// Morse count & morse length
 	volatile uint8_t b;					// Buffer for morse letter
 
