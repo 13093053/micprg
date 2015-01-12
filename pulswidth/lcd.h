@@ -1,5 +1,5 @@
 /*
-//  lcd.h 
+//  lcd.h ?
 //
 //		Routines to write to Hitachi HD44780 compatible LCD driver 
 //
