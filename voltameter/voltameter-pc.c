@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <windows.h>
 #include <time.h>
-#include <unistd.h>
+//#include <unistd.h>			// Koen vanwaar komt dit?
 
 HANDLE initCom(int comPortNumber) {
     DCB dcb;
@@ -85,7 +85,7 @@ int main(void) {
 	/* De tijd en datum ophalen uit het operating systeem */
         time(&tijd);
         pt = localtime(&tijd);
-        fprintf(outfile,"\n%02d-%02d-%4d %02d:%02d:%02d :", pt->tm_mday, pt->tm_mon + 1, pt->tm_year + 1900, pt-tm_hour, pt-tm_min, pt-tm_sec);
+        fprintf(outfile,"%02d-%02d-%4d %02d:%02d:%02d :", pt->tm_mday, pt->tm_mon + 1, pt->tm_year + 1900, pt->tm_hour, pt->tm_min, pt->tm_sec);
         do {
         in = readCom(hCom);
             if (in != 'Q') {
@@ -95,6 +95,7 @@ int main(void) {
         } while (in != 'Q');
 	fprintf(outfile,"\n");
 	Sleep(5000);
+	printf("\n");							// Beetje netter uitzien
     }
     closeCom(hCom);
     fclose(outfile);
