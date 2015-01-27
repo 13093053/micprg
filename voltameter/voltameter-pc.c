@@ -85,7 +85,7 @@ int main(void) {
 	/* De tijd en datum ophalen uit het operating systeem */
         time(&tijd);
         pt = localtime(&tijd);
-        fprintf(outfile,"%02d-%02d-%4d :", pt->tm_mday, pt->tm_mon + 1, pt->tm_year + 1900);
+        fprintf(outfile,"\n%02d-%02d-%4d %02d:%02d:%02d :", pt->tm_mday, pt->tm_mon + 1, pt->tm_year + 1900, pt-tm_hour, pt-tm_min, pt-tm_sec);
         do {
         in = readCom(hCom);
             if (in != 'Q') {
